@@ -1,5 +1,12 @@
 import React from "react";
+import { GlobalStyle } from "./style/global";
+import { Header } from "./components/Header";
 
 export function App() {
-  return <div className="App">Hellow World</div>;
+  return (
+    <>
+      <GlobalStyle />
+      <Header />
+    </>
+  );
 }
