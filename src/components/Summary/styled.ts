@@ -25,5 +25,10 @@ export const Container = styled.main`
       font-weight: normal;
       line-height: 3rem;
     }
+
+    &.Highlight {
+      background: var(--green);
+      color: var(--shape);
+    }
   }
 `;
