@@ -1,3 +1,4 @@
+import { darken, transparentize } from "polished";
 import styled from "styled-components";
 
 export const Form = styled.form`
@@ -42,5 +43,52 @@ export const Form = styled.form`
     &:hover {
       filter: brightness(0.9);
     }
+  }
+`;
+
+export const Row = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin: 1rem 0;
+  width: 100%;
+`;
+
+interface RadioBoxProps {
+  isActive: boolean;
+  activeColor: "green" | "red";
+}
+
+const colors = {
+  green: "#33cc95",
+  red: "#352e4d",
+};
+
+export const RadioBox = styled.button<RadioBoxProps>`
+  height: 4rem;
+  border: 1px solid #d7d7d7;
+  border-radius: 0.25rem;
+  background: ${({ isActive, activeColor }) =>
+    isActive ? transparentize(0.9, colors[activeColor]) : "transparent"};
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s border-color;
+
+  &:hover {
+    border-color: ${darken(0.1, "#d7d7d7")};
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+
+  span {
+    color: var(--text-title);
+    display: inline-block;
+    font-size: 1rem;
+    margin-left: 1rem;
   }
 `;
